@@ -10,7 +10,6 @@ const Quiz = () => {
     shuffledQuestions,
     setShuffledQuestions,
   } = useQuizContext();
-  const [shuffledAnswersList, setShuffledAnswersList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const Quiz = () => {
       let answers = [...question.incorrect_answers, question.correct_answer];
       shuffledAnswersArray.push(shuffleArray(answers));
     });
-    setShuffledAnswersList(shuffledAnswersArray);
     setShuffledQuestions(shuffledAnswersArray);
   }, [questions]);
 

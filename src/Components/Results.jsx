@@ -38,8 +38,6 @@ const Results = () => {
     navigateTo("/");
   };
 
-  console.log(correctAnswers);
-
   return (
     <div className="container mx-auto pl-4 pr-4">
       <h1 className="text-3xl font-bold mb-4 mt-4 mr-auto ml-auto text-center">
