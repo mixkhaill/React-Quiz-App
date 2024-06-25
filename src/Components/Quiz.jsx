@@ -74,13 +74,15 @@ const Quiz = () => {
           </div>
         );
       })}
-      <button
-        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 disabled:bg-blue-300 disabled:cursor-not-allowed"
-        onClick={handleSubmitAnswers}
-        disabled={length < 5}
-      >
-        Submit
-      </button>
+      {!(length < 5) && (
+        <button
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 disabled:bg-blue-300 disabled:cursor-not-allowed"
+          onClick={handleSubmitAnswers}
+          disabled={length < 5}
+        >
+          Submit
+        </button>
+      )}
     </div>
   );
 };
