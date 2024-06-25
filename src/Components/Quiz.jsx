@@ -76,6 +76,7 @@ const Quiz = () => {
       })}
       {!(length < 5) && (
         <button
+          id="submitQuizBtn"
           className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 disabled:bg-blue-300 disabled:cursor-not-allowed"
           onClick={handleSubmitAnswers}
           disabled={length < 5}

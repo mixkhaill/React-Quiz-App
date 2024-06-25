@@ -38,6 +38,8 @@ const Results = () => {
     navigateTo("/");
   };
 
+  console.log(correctAnswers);
+
   return (
     <div className="container mx-auto pl-4 pr-4">
       <h1 className="text-3xl font-bold mb-4 mt-4 mr-auto ml-auto text-center">
@@ -68,20 +70,21 @@ const Results = () => {
         })}
       </div>
       <p
-        className={`text-center mt-10 py-2 px-4 text-white ${
+        className={`mt-10 inline-block py-2 px-4 text-white ${
           correctSelectedAnswers.length < 2
             ? "bg-red-600"
             : correctSelectedAnswers.length >= 2 &&
               correctSelectedAnswers.length <= 3
             ? "bg-yellow-500"
-            : "bg-green-500"
+            : "bg-green-600"
         }`}
       >
         You scored {correctSelectedAnswers.length} out of {questions.length}
       </p>
       <button
+        id="createNewQuizBtn"
         type="button"
-        className="flex items-center justify-center text-white bg-gray-500 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-semibold rounded mt-5 w-full py-2 px-4 center-center"
+        className="flex items-center justify-center text-white bg-gray-500 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-semibold rounded ml-auto mr-auto mt-5 p-4 center-center"
         onClick={handleReturn}
       >
         Create a new quiz

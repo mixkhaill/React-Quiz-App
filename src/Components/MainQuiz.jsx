@@ -10,7 +10,7 @@ const MainQuiz = () => {
     useQuizContext();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
-  const difficulties = ["easy", "medium", "hard"];
+  const difficulties = ["Easy", "Medium", "Hard"];
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const MainQuiz = () => {
   }, [location.pathname]);
 
   const fetchQuizQuestions = async () => {
-    const url = `https://opentdb.com/api.php?amount=5&category=${selectedCategory}&difficulty=${selectedDifficulty}`;
+    const url = `https://opentdb.com/api.php?amount=5&category=${selectedCategory}&difficulty=${selectedDifficulty.toLowerCase()}`;
 
     try {
       const response = await fetch(url);
