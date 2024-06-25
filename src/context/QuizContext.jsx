@@ -6,6 +6,7 @@ export const QuizProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
   const updateQuestions = (newQuestions) => {
     setQuestions(newQuestions);
@@ -27,6 +28,11 @@ export const QuizProvider = ({ children }) => {
     });
   };
 
+  const resetQuiz = () => {
+    setQuestions([]);
+    setSelectedAnswers([]);
+  };
+
   const updateCorrectAnswers = (answers) => {
     setCorrectAnswers(answers);
   };
@@ -37,10 +43,13 @@ export const QuizProvider = ({ children }) => {
         questions,
         selectedAnswers,
         correctAnswers,
+        shuffledQuestions,
+        setShuffledQuestions,
         updateQuestions,
         updateSelectedAnswer,
         updateCorrectAnswers,
         setSelectedAnswers,
+        resetQuiz,
       }}
     >
       {children}

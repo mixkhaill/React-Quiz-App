@@ -1,7 +1,6 @@
 import React from "react";
-import { useQuizContext } from "../context/QuizContext";
 
-const Filters = ({
+const QuizMaker = ({
   categories,
   difficulties,
   selectedDifficulty,
@@ -20,7 +19,7 @@ const Filters = ({
           id="categorySelect"
           value={selectedCategory || ""}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-none text-sm block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5"
         >
           <option value="">Select a category</option>
           {categories?.data?.trivia_categories.map((category) => (
@@ -33,7 +32,7 @@ const Filters = ({
           id="difficultySelect"
           value={selectedDifficulty || ""}
           onChange={(e) => setSelectedDifficulty(e.target.value)}
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-none text-sm block w-full p-2.5"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5"
         >
           <option value="">Select difficulty</option>
           {difficulties.map((difficulty) => (
@@ -55,4 +54,4 @@ const Filters = ({
   );
 };
 
-export default Filters;
+export default QuizMaker;

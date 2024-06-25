@@ -7,8 +7,8 @@ const Results = () => {
     questions,
     correctAnswers,
     selectedAnswers,
-    updateQuestions,
-    setSelectedAnswers,
+    shuffledQuestions,
+    resetQuiz,
   } = useQuizContext();
 
   useEffect(() => {
@@ -34,8 +34,7 @@ const Results = () => {
   };
 
   const handleReturn = () => {
-    setSelectedAnswers({});
-    updateQuestions([]);
+    resetQuiz();
     navigateTo("/");
   };
 
@@ -45,26 +44,28 @@ const Results = () => {
         Results
       </h1>
       <div className="mt-3">
-        {questions.map((question, qIndex) => (
-          <div key={qIndex} className="question mt-3">
-            <p dangerouslySetInnerHTML={{ __html: question.question }}></p>
-            <div className="answers mt-2">
-              {question.incorrect_answers
-                .concat(question.correct_answer)
-                .map((answer, aIndex) => (
-                  <button
-                    key={aIndex}
-                    className={`text-green-700 font-semibold py-2 px-4 border border-green-500 rounded mt-2 mr-2 ${getClassName(
-                      answer,
-                      qIndex
-                    )}`}
-                    dangerouslySetInnerHTML={{ __html: answer }}
-                    disabled
-                  ></button>
-                ))}
+        {questions.map((question, qIndex) => {
+          const shuffledAnswers = shuffledQuestions[qIndex];
+          return (
+            <div key={qIndex} className="question mt-3">
+              <p dangerouslySetInnerHTML={{ __html: question.question }}></p>
+              <div className="answers mt-2">
+                {shuffledAnswers &&
+                  shuffledAnswers.map((answer, answerIndex) => (
+                    <button
+                      key={answerIndex}
+                      className={`text-green-700 font-semibold py-2 px-4 border border-green-500 rounded mt-2 mr-2 ${getClassName(
+                        answer,
+                        qIndex
+                      )}`}
+                      dangerouslySetInnerHTML={{ __html: answer }}
+                      disabled
+                    ></button>
+                  ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <p
         className={`text-center mt-10 py-2 px-4 text-white ${
