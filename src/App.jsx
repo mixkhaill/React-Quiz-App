@@ -10,7 +10,7 @@ function App() {
     <QuizProvider>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<MainQuiz />} />
+          <Route path="/" element={<MainQuiz />} />
           <Route path="/results" element={<Results />} />
         </Routes>
       </BrowserRouter>

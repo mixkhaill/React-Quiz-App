@@ -35,7 +35,9 @@ const MainQuiz = () => {
 
       const data = await response.json();
       updateQuestions(data.results);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleCreateQuiz = () => {
